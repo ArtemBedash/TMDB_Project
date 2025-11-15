@@ -1,0 +1,59 @@
+.section {
+    padding-top: 20px;
+    position: relative;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.55); /* прозрачный тёмный слой */
+    padding: 50px 40px;
+    border-radius: 16px;
+    backdrop-filter: blur(3px); /* лёгкий блюр — “кинематографично” */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    max-width: 700px;
+    width: 90%;
+    animation: fadeIn 1s ease; /* плавное появление */
+}
+
+.overlay h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #00e5ff; /* неоновый акцент */
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+}
+
+.overlay h2 {
+    font-size: 18px;
+    color: #ddd;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+    .overlay {
+        padding: 30px 20px;
+    }
+
+    .overlay h1 {
+        font-size: 28px;
+    }
+
+    .overlay h2 {
+        font-size: 16px;
+    }
+}

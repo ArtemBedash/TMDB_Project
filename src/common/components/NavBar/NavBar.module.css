@@ -1,0 +1,73 @@
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 40px;
+    border: 2px solid rgba(0, 229, 255, 0.25);
+    border-radius: 14px;
+    background: rgba(15, 15, 30, 0.85);
+    box-shadow: 0 0 16px rgba(0, 229, 255, 0.15);
+    backdrop-filter: blur(6px);
+    margin: 20px auto;
+    width: fit-content;
+    transition: all 0.3s ease;
+}
+
+.list {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.link {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.link:hover::after,
+.activeLink::after {
+    width: 100%;
+}
+
+.link:hover,
+.activeLink {
+    color: #33f6ff;
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.6);
+}
+
+[data-theme='light'] .nav {
+    border-color: rgba(0, 119, 170, 0.25);
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 10px rgba(0, 119, 170, 0.2);
+}
+
+[data-theme='light'] .link {
+    color: black;
+}
+
+[data-theme='light'] .link:hover,
+[data-theme='light'] .activeLink {
+    color: #005f8a;
+    text-shadow: 0 0 3px rgba(0, 119, 170, 0.4);
+}

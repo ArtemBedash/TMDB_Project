@@ -1,0 +1,32 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.input {
+    width: 300px;
+    padding: 10px 14px;
+    border: 1px solid var(--border-color, #444);
+    border-radius: 8px;
+    background-color: var(--bg-color, #1b1b2f);
+    color: var(--text-color, #fff);
+    font-size: 16px;
+    outline: none;
+    transition: all 0.25s ease;
+}
+.input::-webkit-search-cancel-button {
+    cursor: pointer;
+}
+
+.input:focus {
+    border-color: var(--accent-color, #00e5ff);
+    box-shadow: 0 0 6px rgba(0, 229, 255, 0.3);
+}
+
+[data-theme='light'] .input {
+    background-color: #f4f4f4;
+    color: #000;
+    border-color: #ccc;
+}

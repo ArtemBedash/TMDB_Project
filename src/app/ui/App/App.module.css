@@ -1,0 +1,17 @@
+.appWrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.mainContent {
+    flex: 1;
+    padding-top: 64px;     /* точная высота хедера */
+    padding-bottom: 48px;  /* точная высота футера */
+    width: 100%;
+    box-sizing: border-box;
+
+}

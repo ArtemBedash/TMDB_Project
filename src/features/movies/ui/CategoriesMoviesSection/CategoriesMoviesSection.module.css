@@ -1,0 +1,12 @@
+.section {
+    padding-top: 20px;
+    text-align: center;
+}
+.section:first-of-type {
+    padding-top: 50px;
+}
+
+.section:last-of-type {
+    margin-bottom: 50px;
+}
+
