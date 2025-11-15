@@ -3,13 +3,18 @@ import {CustomButton} from "@/common/components/CustomButton/CustomButton.tsx";
 import {useGetSearchMoviesQuery} from "@/features/movies/api/tmdbApi.ts";
 import {useState} from "react";
 import s from "@/features/movies/ui/SearchSection/SearchSection.module.css";
-import {MoviesGrid} from "@/features/movies/ui/MoviesGrid/MoviesGrid.tsx";
+import {MoviesGrid} from "@/common/components/MoviesGrid/MoviesGrid.tsx";
 import {Pagination} from "@/common/components/Pagination/Pagination.tsx";
+import {useSearchParams} from "react-router-dom";
 
 export const SearchSection = () => {
 
+
+    const [searchParams] = useSearchParams();
+    const initialQuery = searchParams.get("query") || "";
+
     const [value, setValue] = useState('');
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState(initialQuery);
     const [currentPage,setCurrentPage] = useState(1)
 
 
@@ -23,6 +28,8 @@ export const SearchSection = () => {
         setQuery(value.trim())
         setValue('')
     }
+
+    if(isLoading) return <p>Loading...</p>
 
     return (
         <div className={s.wrapper}>

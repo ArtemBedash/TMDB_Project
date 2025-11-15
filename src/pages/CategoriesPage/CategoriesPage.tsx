@@ -5,7 +5,7 @@ import s from './CategoriesPage.module.css'
 export const CategoriesPage = () => {
     return (
         <div className={s.page}>
-            <h1>CategoriesPage</h1>
+            <h1>Categories Page</h1>
             <NavBar/>
             <Outlet/>
 

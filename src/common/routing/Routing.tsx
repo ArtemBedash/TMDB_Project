@@ -1,10 +1,4 @@
 import {Navigate, Route, Routes} from "react-router-dom";
-import {MainPage} from "@/pages/MainPage/MainPage.tsx";
-import {CategoriesPage} from "@/pages/CategoriesPage/CategoriesPage.tsx";
-import {FavoritesPage} from "@/pages/FavoritesPage/FavoritesPage.tsx";
-import {FilterPage} from "@/pages/FilterPage/FilterPage.tsx";
-import {SearchPage} from "@/pages/SearchPage/SearchPage.tsx";
-import {PageNotFound} from "@/common/components/PageNotFound/PageNotFound.tsx";
 import {
     NowPlayingMoviesFull,
     PopularMoviesFull,
@@ -12,6 +6,8 @@ import {
     UpcomingMoviesFull
 } from "@/features/movies/ui/CategoriesMoviesSection";
 import {MovieInfo} from "@/features/movies/ui/MovieInfo/MovieInfo.tsx";
+import {CategoriesPage, FavoritesPage, FilterPage, MainPage, SearchPage} from "@/pages";
+import {PageNotFound} from "@/common/components/PageNotFound/PageNotFound.tsx";
 
 
 export const Path = {

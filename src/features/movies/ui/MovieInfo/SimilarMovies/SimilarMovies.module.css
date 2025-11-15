@@ -1,3 +1,18 @@
+.similarContainer {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.similarContainer h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--accent-color);
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+}
 
 .main {
     display: grid;
@@ -9,6 +24,8 @@
     box-sizing: border-box;
     transition: background-color 0.3s ease, color 0.3s ease;
     justify-items: stretch;}
+
+
 
 .card {
     position: relative;

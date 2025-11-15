@@ -1,12 +1,14 @@
 import {useGetMovieByIdQuery} from "@/features/movies/api/tmdbApi.ts";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import s from './MovieInfo.module.css'
 import {CastInfo} from "@/features/movies/ui/MovieInfo/CastInfo/CastInfo.tsx";
 import {SimilarMovies} from "@/features/movies/ui/MovieInfo/SimilarMovies/SimilarMovies.tsx";
+import {CustomButton} from "@/common/components/CustomButton/CustomButton.tsx";
 
 export const MovieInfo = () => {
 
     const {id} = useParams();
+    const navigate = useNavigate();
 
     const {data} = useGetMovieByIdQuery(id!)
 
@@ -33,16 +35,10 @@ export const MovieInfo = () => {
                         <dd>{`${data?.budget}$`}</dd>
                     </dl>
                 </div>
+             <CustomButton title={"Back"} onClick={()=>navigate(-1)}/>
             </div>
-            <div className={s.castContainer}>
-                <h3>TopCast</h3>
                 <CastInfo/>
-            </div>
-
-            <div className={s.similarContainer}>
-                <h3>Similar Movies</h3>
                 <SimilarMovies/>
-            </div>
         </div>
 
     );

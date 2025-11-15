@@ -6,18 +6,15 @@
     min-height: 100vh;
 }
 
-/* всё, что лежит внутри этой страницы */
 .page > * {
     padding-top: 20px;
     text-align: center;
 }
 
-/* первая секция (поиск) */
 .page > *:first-child {
     padding-top: 50px;
 }
 
-/* последняя секция (например, NowPlaying) */
 .page > *:last-child {
-    margin-bottom: 60px; /* место под футер */
+    margin-bottom: 60px;
 }

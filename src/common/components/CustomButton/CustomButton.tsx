@@ -6,7 +6,7 @@ type Props = {
 
     title: string
     onClick?: () => void
-    disabled:boolean
+    disabled?:boolean
 
 }
 

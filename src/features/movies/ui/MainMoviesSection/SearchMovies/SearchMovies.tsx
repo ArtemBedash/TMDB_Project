@@ -10,7 +10,7 @@ export const SearchMovies = () => {
 
     const [value, setValue] = useState('')
     const { data } = useGetPopularMoviesQuery();
-    const [poster, setPoster] = useState<string|null>(null);
+    const [poster, setPoster] = useState<string>('');
     const navigate = useNavigate()
 
     useEffect(()=>{

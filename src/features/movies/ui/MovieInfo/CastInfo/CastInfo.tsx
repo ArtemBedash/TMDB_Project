@@ -10,7 +10,8 @@ export const CastInfo = () => {
     const {data} = useGetMovieCreditsQuery(id!)
 
     return (
-
+        <div className={s.castContainer}>
+            {data?.cast.length !== 0 ? <h3>Top Cast</h3> : <h3>No Info about Top Cast</h3>}
         <div className={s.castGrid}>
             {data?.cast.slice(0, 6).map(actor => (
                 <div className={s.castCard} key={actor.id}>
@@ -23,6 +24,7 @@ export const CastInfo = () => {
                     <small className={s.castRole}>{actor.character}</small>
                 </div>
             ))}
+        </div>
         </div>
 
     );

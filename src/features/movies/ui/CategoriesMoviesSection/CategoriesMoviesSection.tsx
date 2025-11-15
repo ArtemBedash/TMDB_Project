@@ -3,10 +3,13 @@ import {MoviesGrid} from "@/common/components/MoviesGrid/MoviesGrid.tsx";
 import s from "../CategoriesMoviesSection.module.css"
 import {Pagination} from "@/common/components/Pagination/Pagination.tsx";
 import {useState} from "react";
-import {MoviesSkeletons} from "@/features/movies/ui/MoviesSkeletons/MoviesSkeletons.tsx";
 
+type Props = {
 
-export const PopularMoviesFull = () => {
+    title: string
+
+}
+export const PopularMoviesFull = ({title}:Props) => {
     const [currentPage, setCurrentPage] = useState(1)
 
     const {data, isLoading} = useGetPopularMoviesQuery(currentPage)
@@ -14,25 +17,16 @@ export const PopularMoviesFull = () => {
     const columns = 5
 
 
-    if (isLoading)
-        return (
-            <section className={s.section}>
-                <h1>Now Playing Movies</h1>
+    if (isLoading) return <p>Loading...</p>
 
-                <div className={s.main} style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
-                    <MoviesSkeletons count={columns * 2} />
-                </div>
-
-            </section>
-        );
     return (
 
         <section className={s.section}>
-            <h1>Popular Movies</h1>
+            <h1>{title}</h1>
             <MoviesGrid  movies={data?.results || []} columns={columns}/>
             <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} pagesCount={safeTotalPages}/>
         </section>
-        
+
 
     )
 

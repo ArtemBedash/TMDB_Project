@@ -113,6 +113,43 @@
 
 
 
+.fav,
+.favActive {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.55);
+    cursor: pointer;
+}
+
+.fav svg {
+    width: 20px;
+    height: 20px;
+    fill: transparent;
+    stroke: white;
+}
+
+.favActive svg {
+    width: 20px;
+    height: 20px;
+    fill: red;
+    stroke: red;
+}
+
+.fav:hover svg,
+.favActive:hover svg {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 6px red);
+}
+
+
 
 
 @media (max-width: 900px) {
