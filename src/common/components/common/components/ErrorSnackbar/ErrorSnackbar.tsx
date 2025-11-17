@@ -11,7 +11,6 @@ export const ErrorSnackbar = () => {
 
     const error = useSelector(selectAppError);
     const dispatch = useDispatch()
-    console.log(error)
 
 
     function SlideRight(props:SlideProps) {

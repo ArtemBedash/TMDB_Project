@@ -45,10 +45,6 @@ export const baseApi = createApi({
                     break
                 }
 
-                default:{
-
-                    api.dispatch(setAppError(result.error))
-                }
             }
 
         }
