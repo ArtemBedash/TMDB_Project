@@ -21,4 +21,3 @@ export const CustomInput = ({placeholder,value,onChange}: Props) => {
         </div>
     );
 };
-

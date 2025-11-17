@@ -6,8 +6,8 @@ type Theme = 'dark' | 'light'
 
 const initialState = {
     theme: storage.get('theme', 'dark') as Theme,
+    error: null,
 }
-
 export const appSlice = createSlice({
 
 
@@ -15,14 +15,24 @@ export const appSlice = createSlice({
     initialState,
     selectors: {
         selectTheme: (state) => state.theme,
+
+        selectAppError: (state) => state.error, // ← вот он
+
     },
     reducers: {
 
         changeTheme: (state, action) => {
 
             state.theme = action.payload;
-    }
-}})
 
-export const {changeTheme} = appSlice.actions;
-export const {selectTheme} = appSlice.selectors;
+
+        },
+        setAppError: (state, action) => {
+            state.error = action.payload;
+            console.log(state.error)
+        },
+    }
+})
+
+export const {changeTheme, setAppError} = appSlice.actions;
+export const {selectTheme, selectAppError} = appSlice.selectors;

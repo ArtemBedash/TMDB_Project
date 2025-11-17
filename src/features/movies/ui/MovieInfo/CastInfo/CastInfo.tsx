@@ -1,13 +1,21 @@
 import {useGetMovieCreditsQuery} from "@/features/movies/api/tmdbApi.ts";
 import {useParams} from "react-router-dom";
 import s from './CastInfo.module.css'
+import {MoviesSkeletons} from "@/features/movies/ui/MoviesSkeletons/MoviesSkeletons.tsx";
+import {handleSchemaError} from "@/common/utils/handleSchemaError.ts";
 
 export const CastInfo = () => {
 
     const {id} = useParams()
 
 
-    const {data} = useGetMovieCreditsQuery(id!)
+    const {data,isLoading,error} = useGetMovieCreditsQuery(id!)
+
+    const castCount=6
+    handleSchemaError(error)
+
+    if (isLoading) return (<MoviesSkeletons count={castCount} columns={castCount} title={'Top Cast'}/>);
+
 
     return (
         <div className={s.castContainer}>

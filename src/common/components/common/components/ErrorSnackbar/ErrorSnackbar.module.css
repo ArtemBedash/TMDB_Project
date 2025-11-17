@@ -1,0 +1,17 @@
+.snackbarOffset {
+    top: 90px !important;
+}
+
+.snackbarPaper {
+    background: black !important;
+    border: 2px solid red !important;
+    color: var(--accent-color) !important;
+    box-shadow: 0 0 12px var(--accent-color) !important;
+}
+
+
+[data-theme='light'] .snackbarPaper {
+    background: white !important;
+    color: var(--text-color) !important;
+    box-shadow: 0 0 6px var(--accent-color) !important;
+}

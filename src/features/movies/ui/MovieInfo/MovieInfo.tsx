@@ -4,14 +4,16 @@ import s from './MovieInfo.module.css'
 import {CastInfo} from "@/features/movies/ui/MovieInfo/CastInfo/CastInfo.tsx";
 import {SimilarMovies} from "@/features/movies/ui/MovieInfo/SimilarMovies/SimilarMovies.tsx";
 import {CustomButton} from "@/common/components/CustomButton/CustomButton.tsx";
+import {handleSchemaError} from "@/common/utils/handleSchemaError.ts";
 
 export const MovieInfo = () => {
 
     const {id} = useParams();
     const navigate = useNavigate();
 
-    const {data} = useGetMovieByIdQuery(id!)
+    const {data,error} = useGetMovieByIdQuery(id!)
 
+    handleSchemaError(error)
 
     return (
         <div className={s.container}>

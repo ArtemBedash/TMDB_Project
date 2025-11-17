@@ -17,7 +17,6 @@
     border-radius: 10px;
     overflow: hidden;
     text-align: center;
-    width: 100%;
     max-width: 240px;
     height: 380px;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
@@ -56,6 +55,34 @@
     font-size: 12px;
     font-weight: bold;
     backdrop-filter: blur(4px);
+}
+
+.ratingLow{
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(242, 34, 52, 0.86);
+    color: #000000;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    backdrop-filter: blur(4px);
+
+}
+
+.ratingMiddle{
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(242, 235, 95, 0.88);
+    color: #000000;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    backdrop-filter: blur(4px);
+
 }
 
 .posterWrapper {
@@ -120,9 +147,6 @@
     right: 8px;
     width: 34px;
     height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border: none;
     border-radius: 50%;
     background: rgba(0,0,0,0.55);

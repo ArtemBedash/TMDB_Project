@@ -1,8 +1,10 @@
+import Filter from "@/features/movies/ui/FilterSection/Filter.tsx";
+
 
 export const FilterPage = () => {
     return (
         <div>
-            <h1>Filter</h1>
+            <Filter/>
         </div>
     );
 };

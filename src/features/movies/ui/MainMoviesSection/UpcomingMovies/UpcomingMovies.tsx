@@ -3,24 +3,17 @@ import {MoviesGrid} from "@/common/components/MoviesGrid/MoviesGrid.tsx";
 import s from "../MainMoviesSection.module.css"
 import {NavLink} from "react-router-dom";
 import {MoviesSkeletons} from "@/features/movies/ui/MoviesSkeletons/MoviesSkeletons.tsx";
+import {handleSchemaError} from "@/common/utils/handleSchemaError.ts";
 
 export const UpcomingMovies = () => {
 
-    const {data, isLoading} = useGetUpcomingMoviesQuery()
+    const {data, isLoading,error} = useGetUpcomingMoviesQuery()
 
     const columns = 6
+    handleSchemaError(error)
 
-    if (isLoading)
-        return (
-            <section className={s.section}>
-                <h1>Now Playing Movies</h1>
+    if (isLoading) return (<MoviesSkeletons count={columns} columns={columns} title={'Upcoming Movies'}/>);
 
-                <div className={s.main} style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
-                    <MoviesSkeletons count={columns} />
-                </div>
-
-            </section>
-        );
 
 
     return (

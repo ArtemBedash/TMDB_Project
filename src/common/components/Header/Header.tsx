@@ -7,7 +7,7 @@ import darkIcon from '@/common/assets/icons/theme-day.png'
 import lightIcon from '@/common/assets/icons/theme-night.png'
 import {storage} from "@/common/utils/storage.ts";
 import {useDispatch, useSelector} from "react-redux";
-import {changeTheme, selectTheme} from "@/app/store/slices/appSlice.ts";
+import {changeTheme, selectTheme} from "@/app/model/store/slices/appSlice.ts";
 
 
 const navItems = [

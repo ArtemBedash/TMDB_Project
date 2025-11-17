@@ -6,6 +6,8 @@ import s from "@/features/movies/ui/SearchSection/SearchSection.module.css";
 import {MoviesGrid} from "@/common/components/MoviesGrid/MoviesGrid.tsx";
 import {Pagination} from "@/common/components/Pagination/Pagination.tsx";
 import {useSearchParams} from "react-router-dom";
+import {MoviesSkeletons} from "@/features/movies/ui/MoviesSkeletons/MoviesSkeletons.tsx";
+import {handleSchemaError} from "@/common/utils/handleSchemaError.ts";
 
 export const SearchSection = () => {
 
@@ -18,9 +20,10 @@ export const SearchSection = () => {
     const [currentPage,setCurrentPage] = useState(1)
 
 
-    const {data,isLoading} = useGetSearchMoviesQuery({search: query,page:currentPage})
+    const {data,isLoading,isFetching,error} = useGetSearchMoviesQuery({search: query,page:currentPage})
     const columns=5;
     const safeTotalPages = Math.min(data?.total_pages ?? 1, 500);
+    handleSchemaError(error)
 
 
     const handleSearch = () => {
@@ -29,7 +32,8 @@ export const SearchSection = () => {
         setValue('')
     }
 
-    if(isLoading) return <p>Loading...</p>
+    const moviesSkeletonsCount = 5
+
 
     return (
         <div className={s.wrapper}>
@@ -42,6 +46,7 @@ export const SearchSection = () => {
             <CustomButton title={'Search'} onClick={handleSearch} disabled={!value}/>
             </div>
             <div className={s.sectionCards}>
+                {query && isFetching && <MoviesSkeletons count={moviesSkeletonsCount} columns={moviesSkeletonsCount} title={'Results'}/>}
                 {query&&!data?.results?.length  && !isLoading && <span className={s.noResults}>No Matches Found</span>}
                 {data?.results?.length ? <MoviesGrid movies={data.results} columns={columns} /> : null}
             </div>

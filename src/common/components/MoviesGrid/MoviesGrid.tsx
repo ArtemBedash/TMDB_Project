@@ -2,7 +2,7 @@ import type {Movie} from "@/features/movies/model/types.ts";
 import s from './MoviesGrid.module.css'
 import {Link} from "react-router-dom"
 import {useDispatch, useSelector} from "react-redux";
-import {addDelFav, selectFavItems} from "@/app/store/slices/favoritesSlice.ts";
+import {addDelFav, selectFavItems} from "@/app/model/store/slices/favoritesSlice.ts";
 
 
 type Props = {
@@ -17,7 +17,6 @@ export const MoviesGrid = ({movies, moviesCount, columns}: Props) => {
 
     const dispatch = useDispatch()
     const favMovies = useSelector(selectFavItems)
-
 
 
     function getFavExist(id: number) {
@@ -35,7 +34,16 @@ export const MoviesGrid = ({movies, moviesCount, columns}: Props) => {
             {movies?.slice(0, moviesCount).map(m => (
                 <Link to={`/movie/${m.id}`} key={m.id} className={s.cardLink}>
                     <div className={s.card}>
-                        <span className={s.rating}>{m.vote_average.toFixed(1)}</span>
+                        <span
+                            className={
+                                m.vote_average >= 8
+                                    ? s.rating
+                                    : m.vote_average >= 6
+                                        ? s.ratingMiddle
+                                        : s.ratingLow
+                            }>
+                            {m.vote_average.toFixed(1)}
+                        </span>
                         <button
                             className={getFavExist(m.id) ? s.favActive : s.fav}
                             onClick={(e) => {

@@ -4,14 +4,16 @@ import {CustomButton} from "@/common/components/CustomButton/CustomButton.tsx";
 import {useEffect, useState} from "react";
 import {useGetPopularMoviesQuery} from "@/features/movies/api/tmdbApi.ts";
 import {useNavigate} from "react-router-dom";
+import {handleSchemaError} from "@/common/utils/handleSchemaError.ts";
 
 
 export const SearchMovies = () => {
 
     const [value, setValue] = useState('')
-    const { data } = useGetPopularMoviesQuery();
+    const { data,error } = useGetPopularMoviesQuery();
     const [poster, setPoster] = useState<string>('');
     const navigate = useNavigate()
+    handleSchemaError(error)
 
     useEffect(()=>{
 
