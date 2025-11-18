@@ -88,11 +88,11 @@ export const movieCreditsSchema = z.object({
             cast_id: z.number(),
             character: z.string(),
             credit_id: z.string(),
-            gender: z.number().nullable,
+            gender: z.number().nullable(),
             id: z.number(),
             name: z.string(),
             original_name: z.string(),
-            profile_path: z.string().nullable,
+            profile_path: z.string().nullable(),
             order: z.number(),
 
 
@@ -107,11 +107,11 @@ export const movieCreditsSchema = z.object({
             department: z.string(),
             job: z.string(),
             credit_id: z.string(),
-            gender: z.number().nullable,
+            gender: z.number().nullable(),
             id: z.number(),
             name: z.string(),
             original_name: z.string(),
-            profile_path: z.string().nullable,
+            profile_path: z.string().nullable(),
 
 
         })
