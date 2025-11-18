@@ -6,6 +6,7 @@ import {Pagination} from "@/common/components/Pagination/Pagination";
 import {Slider} from "@mui/material";
 import {useDebounceValue} from "@/common/utils/useDebounceValue.ts";
 import {MoviesSkeletons} from "@/features/movies/ui/MoviesSkeletons/MoviesSkeletons.tsx";
+import {CustomButton} from "@/common/components/CustomButton/CustomButton.tsx";
 
 const genresAll =
 
@@ -43,7 +44,7 @@ const Filter = () => {
     const MoviesCount = 8;
 
 
-    const {data,isFetching} = useGetFilteredMoviesQuery({
+    const {data, isFetching} = useGetFilteredMoviesQuery({
 
         page: currentPage,
         sortBy: sortBy,
@@ -68,11 +69,14 @@ const Filter = () => {
         setGenres(prevState => isIncluded ? prevState.filter(item => item !== id) : [...genres, id])
 
     }
-// const handleReset{
-//
-//
-//
-//     }
+    const handleReset = ()=>
+    {
+        setSortBy("popularity.desc")
+        setRating([0, 10])
+        setGenres([])
+
+
+    }
 
     return (
 
@@ -113,13 +117,13 @@ const Filter = () => {
 
                     ))}
                 </div>
+                <CustomButton title={'Clear All Filters'} onClick={handleReset} />
 
             </aside>
 
 
-
             <section className={s.results}>
-                {isFetching && <MoviesSkeletons count={MoviesCount} columns={MoviesCount/2}/>}
+                {isFetching && <MoviesSkeletons count={MoviesCount} columns={MoviesCount / 2}/>}
                 {!isFetching && <MoviesGrid movies={data?.results || []} columns={4}/>}
                 <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} pagesCount={safeTotalPages}/>
 
