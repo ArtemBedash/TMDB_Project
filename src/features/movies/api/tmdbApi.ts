@@ -112,7 +112,6 @@ export const tmdbApi = baseApi.injectEndpoints({
             responseSchema: moviesResponseSchema,
             catchSchemaFailure: () => {
                 return { status: 'CUSTOM_ERROR', error: 'Schema validation failed' }
-
             },
         }),
     }),

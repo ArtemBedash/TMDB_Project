@@ -7,7 +7,6 @@ import {MoviesGrid} from "@/common/components/MoviesGrid/MoviesGrid.tsx";
 import {Pagination} from "@/common/components/Pagination/Pagination.tsx";
 import {useSearchParams} from "react-router-dom";
 import {MoviesSkeletons} from "@/features/movies/ui/MoviesSkeletons/MoviesSkeletons.tsx";
-import {handleSchemaError} from "@/common/utils/handleSchemaError.ts";
 
 export const SearchSection = () => {
 
@@ -20,10 +19,9 @@ export const SearchSection = () => {
     const [currentPage,setCurrentPage] = useState(1)
 
 
-    const {data,isLoading,isFetching,error} = useGetSearchMoviesQuery({search: query,page:currentPage})
+    const {data,isLoading,isFetching} = useGetSearchMoviesQuery({search: query,page:currentPage})
     const columns=5;
     const safeTotalPages = Math.min(data?.total_pages ?? 1, 500);
-    handleSchemaError(error)
 
 
     const handleSearch = () => {

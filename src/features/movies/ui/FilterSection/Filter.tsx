@@ -6,7 +6,6 @@ import {Pagination} from "@/common/components/Pagination/Pagination";
 import {Slider} from "@mui/material";
 import {useDebounceValue} from "@/common/utils/useDebounceValue.ts";
 import {MoviesSkeletons} from "@/features/movies/ui/MoviesSkeletons/MoviesSkeletons.tsx";
-import {handleSchemaError} from "@/common/utils/handleSchemaError.ts";
 
 const genresAll =
 
@@ -44,7 +43,7 @@ const Filter = () => {
     const MoviesCount = 8;
 
 
-    const {data,isFetching,error} = useGetFilteredMoviesQuery({
+    const {data,isFetching} = useGetFilteredMoviesQuery({
 
         page: currentPage,
         sortBy: sortBy,
@@ -53,7 +52,6 @@ const Filter = () => {
         genres: genres.join(",")
     })
 
-    handleSchemaError(error)
 
     const safeTotalPages = Math.min(data?.total_pages ?? 1, 500);
 
@@ -70,7 +68,11 @@ const Filter = () => {
         setGenres(prevState => isIncluded ? prevState.filter(item => item !== id) : [...genres, id])
 
     }
-
+// const handleReset{
+//
+//
+//
+//     }
 
     return (
 

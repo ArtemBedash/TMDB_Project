@@ -1,6 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {setAppError} from "@/app/model/store/slices/appSlice.ts";
-import type {TMDBError} from "@/features/movies/model/types.ts";
+import type {SchemaErr, TMDBError} from "@/features/movies/model/types.ts";
 
 
 export const baseApi = createApi({
@@ -49,7 +49,12 @@ export const baseApi = createApi({
 
         }
 
-        return result;
+        if ((result.data as SchemaErr)?.status === "CUSTOM_ERROR") {
+            api.dispatch(setAppError((result.data as SchemaErr).error));
+        }
+
+
+            return result;
     },
 
 

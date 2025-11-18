@@ -2,14 +2,12 @@ import {Link, useParams} from "react-router-dom";
 import {useGetSimilarMoviesQuery} from "@/features/movies/api/tmdbApi.ts";
 import s from './SimilarMovies.module.css';
 import {MoviesSkeletons} from "@/features/movies/ui/MoviesSkeletons/MoviesSkeletons.tsx";
-import {handleSchemaError} from "@/common/utils/handleSchemaError.ts";
 
 export const SimilarMovies = () => {
 
     const {id} = useParams()
-    const {data,isLoading,error} = useGetSimilarMoviesQuery(id!)
+    const {data,isLoading} = useGetSimilarMoviesQuery(id!)
     const moviesCount = 6
-    handleSchemaError(error)
 
     if (isLoading) return (<MoviesSkeletons count={moviesCount} columns={moviesCount} title={'Similar Movies'}/>);
 

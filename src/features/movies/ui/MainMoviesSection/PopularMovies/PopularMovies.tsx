@@ -3,15 +3,13 @@ import {MoviesGrid} from "@/common/components/MoviesGrid/MoviesGrid.tsx";
 import s from "../MainMoviesSection.module.css"
 import {NavLink} from "react-router-dom";
 import {MoviesSkeletons} from "@/features/movies/ui/MoviesSkeletons/MoviesSkeletons.tsx";
-import {handleSchemaError} from "@/common/utils/handleSchemaError.ts";
 
 
 export const PopularMovies = () => {
 
-    const {data, isLoading, error} = useGetPopularMoviesQuery()
+    const {data, isLoading} = useGetPopularMoviesQuery()
     const columns = 6
 
-   handleSchemaError(error)
 
     if (isLoading) return (<MoviesSkeletons count={columns} columns={columns} title={'Popular Movies'}/>);
 

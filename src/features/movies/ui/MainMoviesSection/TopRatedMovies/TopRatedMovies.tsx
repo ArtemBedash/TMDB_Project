@@ -3,16 +3,14 @@ import {MoviesGrid} from "@/common/components/MoviesGrid/MoviesGrid.tsx";
 import s from "../MainMoviesSection.module.css"
 import {NavLink} from "react-router-dom";
 import {MoviesSkeletons} from "@/features/movies/ui/MoviesSkeletons/MoviesSkeletons.tsx";
-import {handleSchemaError} from "@/common/utils/handleSchemaError.ts";
 
 
 
 export const TopRatedMovies = () => {
 
-    const { data, isLoading,error } = useGetTopRatedMoviesQuery()
+    const { data, isLoading } = useGetTopRatedMoviesQuery()
 
     const columns = 6
-    handleSchemaError(error)
 
     if (isLoading) return (<MoviesSkeletons count={columns} columns={columns} title={'Top Rated Movies'}/>);
 

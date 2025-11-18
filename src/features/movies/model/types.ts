@@ -28,8 +28,8 @@ export type TMDBError = {
 };
 
 export type SchemaErr = {
-    status: string
-    error: string
+    status?: string
+    error?: string
 }
 
 export type MoviesResponse = z.infer<typeof moviesResponseSchema>;
